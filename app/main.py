@@ -10,4 +10,4 @@ app.include_router(products_router, prefix="/products")
 
 @app.get("/")
 def root():
-    return "Bem-vindo à API de Catálogo de Produtos"
+    return "Welcome to the Product Catalog API"

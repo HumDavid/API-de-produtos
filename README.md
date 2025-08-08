@@ -8,7 +8,7 @@ Código suportado para versões 3.10+ do Python.
 2. Execute com: `fastapi dev app/main.py`
 3. Acesse a documentação interativa em: http://localhost:8000/docs
 
-### Funcionalidades Implementadas
+### Funcionalidades
 - CRUD completo de produtos
 - Filtros por categoria, nome e produto mais barato
 - Operações de venda (diminuir estoque)
@@ -21,3 +21,6 @@ Este projeto segue estritamente o padrão MVC:
 - **Model**: Representação dos dados (models.py)
 - **View**: Camada de apresentação (routers)
 - **Controller**: Lógica de negócios (crud.py)
+
+### Rotas
+- 

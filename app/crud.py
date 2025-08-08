@@ -50,7 +50,7 @@ def delete_produto(db: Session, produto_id: int):
         return True
     return False
 
-def vender_produto(db: Session, produto_id: int, quantidade: int):
+def sell_product(db: Session, produto_id: int, quantidade: int):
     produto = get_produto(db, produto_id)
     if produto and produto.quantidade >= quantidade:
         produto.quantidade -= quantidade
@@ -59,7 +59,7 @@ def vender_produto(db: Session, produto_id: int, quantidade: int):
         return produto
     return None
 
-def comprar_produto(db: Session, produto_id: int, quantidade: int):
+def buy_product(db: Session, produto_id: int, quantidade: int):
     produto = get_produto(db, produto_id)
     if produto:
         produto.quantidade += quantidade
