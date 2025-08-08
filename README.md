@@ -1,42 +1,40 @@
 # API de Catálogo de Produtos
 
-API CRUD para gerenciamento de produtos usando FastAPI seguindo padrão MVC.
-Código suportado para versões 3.10+ do Python.
+API CRUD para gerenciamento de produtos usando FastAPI seguindo padrão MVC (Python 3.10+).
 
-### Como Executar
-1. Crie o ambiente virtual e instale as dependências
-2. Execute com: `fastapi dev app/main.py`
-3. Acesse a documentação interativa em: http://localhost:8000/docs
+### Para executar siga os passos:
+1. Crie o ambiente virtual
+2. instale as dependências com: `pip install -r requirements.txt`
+3. Execute com: `fastapi dev app/main.py`
+4. Acesse a documentação interativa: http://localhost:8000/docs
 
 ### Funcionalidades
-- CRUD completo de produtos
-- Filtros por categoria, nome e produto mais barato
-- Operações de venda (diminuir estoque)
-- Operações de compra (aumentar estoque)
-- Validação de dados com Pydantic
-- Banco de dados SQLite com SQLAlchemy
-- Documentação automática (Swagger UI)
+- Inserir Produtos
+- Deletar Produtos
+- Atualizar Produtos
+- Retornar produtos
+- Filtro para retornar o produto mais barato
+- Filtro para retornar os produtos de uma certa categoria
+- Filtro por nome
+- Rota para venda (diminui a quantidade de um produto)
+- Rota para compra (quantidade de produtos comprados no body)
 
-Este projeto segue estritamente o padrão MVC:
+Padrão MVC implementado:
 - **Model**: Representação dos dados (models.py)
 - **View**: Camada de apresentação (routers)
 - **Controller**: Lógica de negócios (crud.py)
 
-## Rotas Principais
+## Rotas
 
 ### 1. CRUD Produtos
-| Método | Rota                   | Função                         | Parâmetros                     |
-|--------|------------------------|--------------------------------|--------------------------------|
-| POST   | `/products/`           | Criar produto                  | JSON com todos campos*         |
-| GET    | `/products/`           | Listar produtos                | `?categoria=`, `?nome=`, `?mais_barato=true` |
-| GET    | `/products/{id}`       | Obter produto específico       | ID no path                     |
-| PUT    | `/products/{id}`       | Atualizar produto              | Campos parciais no JSON        |
-| DELETE | `/products/{id}`       | Excluir produto                | ID no path                     |
+- Criar produto: POST: `/products/` (Parâmetros: JSON com todos os campos obrigatórios)
+- Listar produtos: GET: `/products/` (Parâmetros: `?categoria=`, `?nome=`, `?mais_barato=true`)
+- Obter produto específico: GET: `/products/{id}` (Parâmetro: ID)
+- Atualizar produto: PUT: `/products/{id}` (Parâmetros: JSON com nenhum campo obrigatório)
+- Excluir produto: DELETE: `/products/{id}` (Parâmetro: ID)
 
 ### 2. Operações de Estoque
-| Método | Rota                           | Função                     | Body               |
-|--------|--------------------------------|----------------------------|--------------------|
-| POST   | `/products/{id}/vender`        | Vender produto             | `{"quantidade": X}`|
-| POST   | `/products/{id}/comprar`       | Comprar mais unidades      | `{"quantidade": X}`|
+- Vender produto: POST: `/products/{id}/sell` (Body: `{"quantidade": X}`)
+- Comprar produto: POST: `/products/{id}/buy` (Body: `{"quantidade": X}`)
 
 \* Campos do produto: `nome`, `descricao`, `categoria`, `preco`, `quantidade`
