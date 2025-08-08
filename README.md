@@ -22,32 +22,7 @@ Este projeto segue estritamente o padrão MVC:
 - **View**: Camada de apresentação (routers)
 - **Controller**: Lógica de negócios (crud.py)
 
-### Rotas
-- Inserir Produtos
-- - POST: `/products/`
-    (possui os seguintes parâmetros:
-    nome: str,
-    descricao: str,
-    categoria: str,
-    preco: float,
-    quantidade: int)
-- Deletar Produtos
-- - DELETE: `/products/{produto_id}`
-- Atualizar Produtos
-- - PUT: `/products/{produto_id}`
-- Retornar produtos
-- - GET: `/products/`
-    (possui os seguintes parâmetros opcionais:
-    categoria: str,
-    nome: str,
-    mais_barato: bool)
-- - GET: `/products/{produto_id}`
-- Rota para venda
-- - POST: `/products/{produto_id}/sell`
-- Rota para compra
-- - POST: `/products/{produto_id}/buy`
-
-## 🔍 Rotas Principais
+## Rotas Principais
 
 ### 1. CRUD Produtos
 | Método | Rota                   | Função                         | Parâmetros                     |
