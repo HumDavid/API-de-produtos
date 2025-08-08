@@ -46,3 +46,22 @@ Este projeto segue estritamente o padrão MVC:
 - - POST: `/products/{produto_id}/sell`
 - Rota para compra
 - - POST: `/products/{produto_id}/buy`
+
+## 🔍 Rotas Principais
+
+### 1. CRUD Produtos
+| Método | Rota                   | Função                         | Parâmetros                     |
+|--------|------------------------|--------------------------------|--------------------------------|
+| POST   | `/products/`           | Criar produto                  | JSON com todos campos*         |
+| GET    | `/products/`           | Listar produtos                | `?categoria=`, `?nome=`, `?mais_barato=true` |
+| GET    | `/products/{id}`       | Obter produto específico       | ID no path                     |
+| PUT    | `/products/{id}`       | Atualizar produto              | Campos parciais no JSON        |
+| DELETE | `/products/{id}`       | Excluir produto                | ID no path                     |
+
+### 2. Operações de Estoque
+| Método | Rota                           | Função                     | Body               |
+|--------|--------------------------------|----------------------------|--------------------|
+| POST   | `/products/{id}/vender`        | Vender produto             | `{"quantidade": X}`|
+| POST   | `/products/{id}/comprar`       | Comprar mais unidades      | `{"quantidade": X}`|
+
+\* Campos do produto: `nome`, `descricao`, `categoria`, `preco`, `quantidade`
